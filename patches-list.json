@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Hide ads",
+    "description": "Disables interstitials, banners, native ads, Revive ads, home feed ad injectors, and IMA preroll.",
+    "compatiblePackages": [
+      {
+        "name": "com.release.arylive",
+        "versions": ["3.8.0"]
+      }
+    ],
+    "use": true
+  }
+]
