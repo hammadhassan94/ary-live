@@ -1,68 +1,91 @@
-# ARY Live
+# 👋🧩 ARY Live
 
-Community patches for **ARY PLUS** (`com.release.arylive`), for use with [Morphe](https://morphe.software).
+Community patches for ARY PLUS, for use with Morphe.
 
-Not affiliated with ARY Digital or the Morphe project. See [NOTICE](NOTICE).
+## ❓ About
 
-## About
+Patches for ARY PLUS (`com.release.arylive`): hide ads, bypass PairIP on resigned sideload, and Original vs Custom app icon.
 
-Hide ads, bypass PairIP on resigned sideload, and optional Original/Custom app icon for ARY PLUS 3.8.0.
+<!-- TODO: Update this about section with a brief introduction/summary about this repo and what it offers. -->
 
 ### How to use these patches
 
-Click here to add these patches to Morphe: https://morphe.software/add-source?github=hammadhassan94/ary-live
-
-Or add this repository as a patch source in Morphe Manager: `hammadhassan94/ary-live`
+Click here to add these patches to Morphe: https://morphe.software/add-source?github=xyz-user/xyz-patches
 
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
 
+<!-- Do not modify this section by hand. The patch list is generated when release.yml creates a new release.
+     
+     If you wish for the patches list to be collapsed, then remove the word 'EXPANDED' from the comment tag above.
+
+     If you wish to manually keep this list updated then remove the PATCHES_START and PATCHES_END 
+     comment blocks entirely. -->
+
 #### A list of your patches will automatically be shown here after your first patches release is created.
 
-<!-- PATCHES_END -->
+&nbsp;
 
-## Getting development started
+## 🚀 Getting development started
 
 To start using this template, follow these steps:
 
 1. [Setup](https://github.com/MorpheApp/morphe-documentation/blob/main/docs/morphe-development/README.md) your development environment including adding a GitHub PAT as described [here](https://github.com/MorpheApp/morphe-patcher/blob/main/docs/2_1_setup.md#-prepare-the-environment).
-2. Enable "Allow GitHub Actions to create and approve pull requests" in repo Settings > Actions > General > Workflow permissions.
-3. Update the [build.gradle.kts](patches/build.gradle.kts) file (group and About).
-4. Update this README and the links in the [issue templates](.github/ISSUE_TEMPLATE).
-5. Keep a name that does not imply authorship by the Morphe project. See [NOTICE](NOTICE).
-6. (Optional): Add `patches-bundle.png` for a custom icon in Morphe Manager.
+2. [Create a new repository using this template](https://github.com/new?template_name=morphe-patches-template&template_owner=MorpheApp). Select create a new repository, and **enable 'Include all branches'** 
+3. Enable "Allow GitHub Actions to create and approve pull requests" in your repo Settings > Actions > General > Workflow permissions
+4. Update the [build.gradle.kts](patches/build.gradle.kts) file (Specifically, the 
+   [group of the project](patches/build.gradle.kts#L1), and the [About](patches/build.gradle.kts#L6-L11))
+5. Update the [README.md](README.md) file to be specific of your repo, and update the links in the [issue templates](.github/ISSUE_TEMPLATE).
+6. Choose a name for your patches project. Keep in mind you must use a name that does not 
+   imply authorship by the Morphe open source project. If unsure, then simply name these
+   patches after yourself ("UserXYZ Morphe patches"). See the [NOTICE](NOTICE) for details. 
+7. (Optional): Add `patches-bundle.png` to the project if you want a custom icon to show in
+   Morphe Manager instead of your GitHub profile avatar.
 
-## Dev usage
+🎉 You are now ready to start creating patches!
 
-To develop and release patches using this template:
+## 🧑‍💻 Dev usage
+
+To develop and release your Patches using this template:
 
 - **Make all changes to the `dev` branch.**
-- For local development build with `./gradlew buildAndroid`. The `.mpp` is in `patches/build/libs/patches-*.mpp`.
-- Always use [semantic commits](https://kapeli.com/cheat_sheets/Semantic_Commits.docset/Contents/Resources/Documents/index):
+- For local development work build your patches using the gradle task `./gradlew buildAndroid` to generate the mpp file found in `patches/build/libs/patches-*.mpp`. Apply your patches locally using Morphe Desktop tool like any other patch bundle.
+- Always use [Semantic commit](https://kapeli.com/cheat_sheets/Semantic_Commits.docset/Contents/Resources/Documents/index) messages for commits. To keep it simple use only 3 commit message types: 
   - `feat: Added a new feature`
   - `fix: Some problem now fixed`
   - `chore: Random change you do not want in the user facing changelog`
-- `fix:` and `feat:` create pre-releases on `dev`. `chore:` does not create a release.
-- Users can apply `dev` releases by enabling pre-release in Morphe Manager.
-- When `dev` is ready for a stable release, merge `dev` into `main` (do not squash).
-- **Always use semantic release (`release.yml`)**. Do not create releases by hand.
+- Commits of `fix:` and `feat:` will automatically generate new pre-releases and `chore:` will not create a new release.
+- Users can apply your dev branch releases by enabling `pre-release` in Morphe Manager patch sources.
+- When your dev branch is ready, and you want a stable release, merge dev branch to main (do not squash, and only merge).
+- **Always use semantic release (release.yml)**. Do not manually upload or create releases by hand
+  because many files must be updated and release.yml handles everything.
 
-## Tips
+## 🤓 Tips
+- See the [patcher documentation](https://github.com/MorpheApp/morphe-patcher/blob/main/docs/1_patcher_intro.md) for more examples of creating patches and fingerprints.
+- Do not use AI to create new release scripts. The `release.yml` here already handles everything.
+  If you need omething custom with your releases then modify the existing `release.yml`
+  and `.releaserc` instead of writing everything new from scratch.
+- Do not manually edit or manually commit any generated files such as: `patches-list.json`,
+  `patches-bundle.json`, `CHANGELOG.md`.  These files will be automatically updated by `release.yml`.
+- Do not force push any semantic release commits as that will break all future releases.
+  If you need to fix a broken release, it's always easiest to create a new release instead of 
+  fixing an existing release.
 
-- See the [patcher documentation](https://github.com/MorpheApp/morphe-patcher/blob/main/docs/1_patcher_intro.md).
-- Do not rewrite `release.yml` from scratch. Modify the existing files if needed.
-- Do not manually edit or commit generated files after CI is live: `patches-list.json`, `patches-bundle.json`, `CHANGELOG.md`.
-- Do not force push semantic-release commits.
 
-### Building locally
+<!-- The patches end tag is intentionally placed here so the first release will clean up 
+     this readme of all developer instructions above. -->
+<!-- PATCHES_END -->
+
+### 🛠️ Building locally
 
 - Run `./gradlew buildAndroid`
-- Output: `patches/build/libs/patches-*.mpp`
-- Patch with [Morphe Desktop](https://github.com/MorpheApp/morphe-desktop)
+- The built patches .mpp file is found in `patches/build/libs/patches-*.mpp`
+- Patch the mpp file using [Morphe-Desktop](https://github.com/MorpheApp/morphe-desktop)
+  like any other patch bundle.
 
-See the [Morphe documentation](https://github.com/MorpheApp/morphe-documentation).
+See the [Morphe documentation](https://github.com/MorpheApp/morphe-documentation) for more information.
 
-## License
+## 📜 License
 
 ARY Live is licensed under the [GNU General Public License v3.0](LICENSE)
