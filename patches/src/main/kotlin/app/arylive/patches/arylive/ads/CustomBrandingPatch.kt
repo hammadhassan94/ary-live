@@ -2,10 +2,10 @@ package app.arylive.patches.arylive.ads
 
 import app.arylive.patches.shared.Constants.ARY_PLUS
 import app.morphe.patcher.patch.PatchException
+import app.morphe.patcher.patch.ResourcePatchContext
 import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.patch.stringOption
 import org.w3c.dom.Element
-import java.io.File
 
 /**
  * Official Morphe YouTube/Reddit expose **Original** vs **Custom** app icon
@@ -83,7 +83,11 @@ private val dpiFolders = listOf(
     "mipmap-xxxhdpi",
 )
 
-private fun copyBundledCustomIcons() {
+/**
+ * Write icons through [ResourcePatchContext.get], which stages files in the
+ * patcher workspace. A raw `File("res/...")` is not the decoded APK on device.
+ */
+private fun ResourcePatchContext.copyBundledCustomIcons() {
     val loader = object {}.javaClass.classLoader
         ?: throw PatchException("Cannot load bundled Custom branding icons")
 
@@ -92,17 +96,17 @@ private fun copyBundledCustomIcons() {
             val resource = "arylive/branding/$dpi/$file"
             val stream = loader.getResourceAsStream(resource)
                 ?: throw PatchException("Missing bundled icon $resource")
+            val dest = get("res/$dpi/$file")
+            dest.parentFile?.mkdirs()
             stream.use { input ->
-                val dest = File("res/$dpi/$file")
-                dest.parentFile?.mkdirs()
                 dest.outputStream().use { output -> input.copyTo(output) }
             }
+            delete("res/$dpi/${file.removeSuffix(".png")}.webp")
         }
     }
 
-    val drawable = loader.getResourceAsStream("arylive/branding/drawable/ic_launcher.png")
-    drawable?.use { input ->
-        val dest = File("res/drawable/ic_launcher.png")
+    loader.getResourceAsStream("arylive/branding/drawable/ic_launcher.png")?.use { input ->
+        val dest = get("res/drawable/ic_launcher.png")
         dest.parentFile?.mkdirs()
         dest.outputStream().use { output -> input.copyTo(output) }
     }
