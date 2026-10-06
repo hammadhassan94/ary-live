@@ -1,3 +1,9 @@
+## [1.0.2](https://github.com/[secure]/ary-live/compare/v1.0.1...v1.0.2) (2026-10-06)
+
+### 🐛 Bug Fixes
+
+* Match Revive loadAd by signature instead of URL string ([60d7611](https://github.com/[secure]/ary-live/commit/60d7611057ec6bd1d91f0969d8e558aff25ee4ba))
+
 ## [1.0.1](https://github.com/[secure]/ary-live/compare/v1.0.0...v1.0.1) (2026-10-06)
 
 ### 🐛 Bug Fixes

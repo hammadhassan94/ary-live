@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-10-06T06:27:17",
-  "description": "## [1.0.1](https://github.com/[secure]/ary-live/compare/v1.0.0...v1.0.1) (2026-10-06)\n\n### 🐛 Bug Fixes\n\n* Stage custom launcher icons through ResourcePatchContext ([e31442a](https://github.com/[secure]/ary-live/commit/e31442ab6a3c77dea24fd6fabf5a5bc89d9c3d71))",
-  "download_url": "https://github.com/hammadhassan94/ary-live/releases/download/v1.0.1/patches-1.0.1.mpp",
+  "created_at": "2026-10-06T06:39:51",
+  "description": "## [1.0.2](https://github.com/[secure]/ary-live/compare/v1.0.1...v1.0.2) (2026-10-06)\n\n### 🐛 Bug Fixes\n\n* Match Revive loadAd by signature instead of URL string ([60d7611](https://github.com/[secure]/ary-live/commit/60d7611057ec6bd1d91f0969d8e558aff25ee4ba))",
+  "download_url": "https://github.com/hammadhassan94/ary-live/releases/download/v1.0.2/patches-1.0.2.mpp",
   "signature_download_url": "",
-  "version": "1.0.1"
+  "version": "1.0.2"
 }
