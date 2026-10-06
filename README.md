@@ -14,9 +14,13 @@ Click here to add these patches to Morphe: https://morphe.software/add-source?gi
 
 Or add this repository as a patch source in Morphe Manager: `hammadhassan94/ary-live`
 
-## Patches list
+## 🩹 Patches list
 
-A list of patches will automatically be shown here after the first release is created.
+<!-- PATCHES_START EXPANDED -->
+
+#### A list of your patches will automatically be shown here after your first patches release is created.
+
+<!-- PATCHES_END -->
 
 ## Getting development started
 
