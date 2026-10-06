@@ -122,7 +122,8 @@ internal object LoadNativeAdHorizontalFingerprint : Fingerprint(
 internal object ReviveLoadAdFingerprint : Fingerprint(
     definingClass = "Lcom/material/components/aryzap/Helpers/ReviveAdLoader;",
     name = "loadAd",
-    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
+    // Kotlin @JvmStatic is public static final — Morphe requires exact flags.
+    accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC, AccessFlags.FINAL),
     returnType = "V",
     parameters = listOf(
         "Landroid/content/Context;",
@@ -133,7 +134,6 @@ internal object ReviveLoadAdFingerprint : Fingerprint(
         "Ljava/lang/Runnable;",
         "Ljava/lang/Runnable;",
     ),
-    filters = listOf(string("Requesting Revive Ad for zone: ")),
 )
 
 internal object HomeBannerInjectFingerprint : Fingerprint(

@@ -59,8 +59,12 @@ val hideAdsPatch = bytecodePatch(
         LoadNativeAdForPosterGridFingerprint.method.returnEarly(notify = true)
         LoadNativeAdHorizontalFingerprint.method.returnEarly(notify = true)
 
-        // --- Revive ---
-        ReviveLoadAdFingerprint.method.returnEarly(notify = true)
+        // --- Revive (Kotlin helper; absent on some builds) ---
+        ReviveLoadAdFingerprint.methodOrNull?.returnEarly(notify = true)
+            ?: mutableClassDefByOrNull("Lcom/material/components/aryzap/Helpers/ReviveAdLoader;")
+                ?.methods
+                ?.filter { it.name == "loadAd" && it.returnType == "V" }
+                ?.forEach { it.returnEarly(notify = true) }
 
         // --- Home feed injectors (return original list, silent) ---
         HomeBannerInjectFingerprint.method.returnFirstParameter()
