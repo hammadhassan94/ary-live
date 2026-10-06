@@ -124,10 +124,16 @@ internal object ReviveLoadAdFingerprint : Fingerprint(
     name = "loadAd",
     accessFlags = listOf(AccessFlags.PUBLIC, AccessFlags.STATIC),
     returnType = "V",
-    filters = listOf(
-        string("Requesting Revive Ad for zone: "),
-        string("https://ads.aryzap.com"),
+    parameters = listOf(
+        "Landroid/content/Context;",
+        "Landroid/widget/FrameLayout;",
+        "Ljava/lang/String;",
+        "Ljava/lang/String;",
+        "Landroid/view/ViewGroup\$LayoutParams;",
+        "Ljava/lang/Runnable;",
+        "Ljava/lang/Runnable;",
     ),
+    filters = listOf(string("Requesting Revive Ad for zone: ")),
 )
 
 internal object HomeBannerInjectFingerprint : Fingerprint(
