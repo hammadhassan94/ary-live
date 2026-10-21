@@ -1,3 +1,9 @@
+## [1.1.0](https://github.com/[secure]/ary-live/compare/v1.0.3...v1.1.0) (2026-10-21)
+
+### ✨ New Features
+
+* Target ARY PLUS 3.8.1 (versionCode 181) ([6a85cb3](https://github.com/[secure]/ary-live/commit/6a85cb3a5be566eb2e48670b45bc9a2417155776))
+
 ## [1.0.3](https://github.com/[secure]/ary-live/compare/v1.0.2...v1.0.3) (2026-10-06)
 
 ### 🐛 Bug Fixes
