@@ -8,7 +8,8 @@ object Constants {
     /**
      * Stock ARY PLUS (phone).
      *
-     * Latest verified: 3.8.0 (versionCode 180) — Sep 2026 (APKPure / APKCombo).
+     * Latest verified: 3.8.1 (versionCode 181) — Oct 2026 (Play / APKPure).
+     * Ad helpers, Revive, IMA providers, and PairIP signatures match 3.8.0.
      * Single APK (not a Reddit-style split APKM). Morphe Manager will ask users
      * for this version via [targets].
      */
@@ -18,6 +19,9 @@ object Constants {
         apkFileType = ApkFileType.APK,
         appIconColor = 0xC8102E,
         targets = listOf(
+            AppTarget(
+                version = "3.8.1",
+            ),
             AppTarget(
                 version = "3.8.0",
             ),
